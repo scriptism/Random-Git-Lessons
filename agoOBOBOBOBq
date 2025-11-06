@@ -1,0 +1,23 @@
+[33mcommit 363ee78d3738d5e7d4b085d0d22325264e4d99dd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Amin <aminullahpuya@gmail.com>
+Date:   Wed Nov 5 06:59:46 2025 +0100
+
+    created section for the lessons
+
+[33mcommit 17d6cee3ef387cb16c72a7e1791883e8ac4af739[m
+Author: Amin <aminullahpuya@gmail.com>
+Date:   Tue Nov 4 11:00:26 2025 +0100
+
+    popped the most recent stash
+
+[33mcommit 9195ce83fd41c3cabc1685a6ae1e66c29ea6eb46[m
+Author: Amin <aminullahpuya@gmail.com>
+Date:   Tue Nov 4 10:38:17 2025 +0100
+
+    commit before stash and new branch
+
+[33mcommit 1be200bf5e318c891132988bcef4152406f79d09[m
+Author: Amin <aminullahpuya@gmail.com>
+Date:   Tue Nov 4 10:25:55 2025 +0100
+
+    updated the file
