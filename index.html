@@ -1,79 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Git lessons</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="main-container">
-      <section class="sections">
-        <h2>Globals</h2>
-        <p></p>
-        <p></p>
-        <p></p>
-      </section>
-      <section class="sections">
-        <h2>Create a repo</h2>
-        <p></p>
-        <p></p>
-      </section>
-      <section class="sections">
-        <h2>Change branch</h2>
-        <p></p>
-        <p></p>
-        <p></p>
-      </section>
-      <section class="sections">
-        <h2>\Tagging</h2>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </section>
-      <section class="sections">
-        <h2>Stash</h2>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </section>
-      <section class="sections">
-        <h2>History</h2>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </section>
-      <section class="sections">
-        <h2>Help</h2>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </section>
-      <<<<<<< HEAD =======
-      <section class="sections">
-        <h2>Branch</h2>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </section>
-      <section class="sections">
-        <h2>Merge</h2>
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
-      </section>
-      >>>>>>> new-feature
+<head>
+  <meta charset="UTF-8" />
+  <title>Git Cheat-Sheet – Interactive Tabs</title>
+  <link rel="stylesheet" href="git-styles.css" />
+</head>
+<body>
+  <nav class="side-nav">
+    <h2>Git Tutorial</h2>
+    <button class="tab-button active" onclick="openTab(event, 'start')">Getting Started</button>
+    <button class="tab-button" onclick="openTab(event, 'config')">Config & Help</button>
+    <button class="tab-button" onclick="openTab(event, 'basic')">Basic Workflow</button>
+    <button class="tab-button" onclick="openTab(event, 'branch')">Branches</button>
+    <button class="tab-button" onclick="openTab(event, 'remote')">Remote & GitHub</button>
+    <button class="tab-button" onclick="openTab(event, 'undo')">Undo Things</button>
+    <button class="tab-button" onclick="openTab(event, 'stash')">Stash & Clean</button>
+    <button class="tab-button" onclick="openTab(event, 'advanced')">Advanced</button>
+  </nav>
+
+  <main class="content-area">
+    <!-- Getting Started -->
+    <div id="start" class="tab-content" style="display:block">
+      <h1>What is Git?</h1>
+      <p>Git is a <strong>distributed version-control system</strong>.  
+         It snapshots your project history so you can time-travel, collaborate, and experiment safely.</p>
+
+      <h2>Install Git</h2>
+      <ul>
+        <li>Windows: <code>winget install Git.Git</code> or download from <a href="https://git-scm.com" target="_blank">git-scm.com</a></li>
+        <li>macOS: <code>brew install git</code></li>
+        <li>Debian/Ubuntu: <code>sudo apt install git</code></li>
+      </ul>
+
+      <h2>Verify Install</h2>
+      <div class="code-example"><code>git --version</code></div>
     </div>
-    <!-- <script src="script.js"></script> -->
-  </body>
+
+    <!-- Config & Help -->
+    <div id="config" class="tab-content">
+      <h1>Global Config (once per machine)</h1>
+      <div class="code-example">
+        <code>
+git config --global user.name "Your Name"<br>
+git config --global user.email "you@example.com"<br>
+git config --global init.defaultBranch main<br>
+git config --global core.autocrlf input   <span># mac/Linux</span><br>
+git config --global core.autocrlf true    <span># Windows</span>
+        </code>
+      </div>
+
+      <h2>Get Help Instantly</h2>
+      <div class="code-example">
+        <code>git help &lt;command&gt;<br>git &lt;command&gt; -h<br>git config --list</code>
+      </div>
+    </div>
+
+    <!-- Basic Workflow -->
+    <div id="basic" class="tab-content">
+      <h1> everyday 5-command Workflow</h1>
+      <ol>
+        <li><code>git status</code> – see what’s going on</li>
+        <li><code>git add .</code> – stage changes</li>
+        <li><code>git commit -m "describe the why"</code> – snapshot</li>
+        <li><code>git pull</code> – merge remote work first</li>
+        <li><code>git push</code> – publish your snapshot</li>
+      </ol>
+
+      <h2>Start a Local Repository</h2>
+      <div class="code-example">
+        <code>
+mkdir my-project && cd my-project<br>
+git init          <span># creates .git folder</span><br>
+echo "# my-project" > README.md<br>
+git add README.md<br>
+git commit -m "Initial commit"
+        </code>
+      </div>
+    </div>
+
+    <!-- Branches -->
+    <div id="branch" class="tab-content">
+      <h1>Branches Let You Work in Parallel</h1>
+      <div class="code-example">
+        <code>
+git branch              <span># list local branches</span><br>
+git switch -c feature   <span># create & checkout</span><br>
+git switch main         <span># jump back</span><br>
+git merge feature       <span># integrate</span><br>
+git branch -d feature   <span># delete if fully merged</span>
+        </code>
+      </div>
+
+      <h2>Graphical Log</h2>
+      <div class="code-example"><code>git log --oneline --graph --decorate</code></div>
+    </div>
+
+    <!-- Remote & GitHub -->
+    <div id="remote" class="tab-content">
+      <h1>Connect to GitHub (or GitLab/Bitbucket)</h1>
+      <div class="code-example">
+        <code>
+<span># on GitHub, create empty repo, then:</span><br>
+git remote add origin https://github.com/YOU/REPO.git<br>
+git push -u origin main   <span># first push sets upstream</span>
+        </code>
+      </div>
+
+      <h2>Clone Existing Project</h2>
+      <div class="code-example"><code>git clone https://github.com/USER/PROJECT.git</code></div>
+
+      <h2>Typical Collaboration Cycle</h2>
+      <ol>
+        <li><code>git pull</code> – grab latest</li>
+        <li>edit / test</li>
+        <li><code>git add -p</code> – stage hunks interactively</li>
+        <li><code>git commit</code></li>
+        <li><code>git push</code></li>
+      </ol>
+    </div>
+
+    <!-- Undo -->
+    <div id="undo" class="tab-content">
+      <h1>Undo Without Panic</h1>
+      <table>
+        <thead><tr><th>I want to…</th><th>Command</th></tr></thead>
+        <tbody>
+          <tr><td>unstage a file</td><td><code>git restore --staged &lt;file&gt;</code></td></tr>
+          <tr><td>discard edits in working file</td><td><code>git restore &lt;file&gt;</code></td></tr>
+          <tr><td>change last commit message</td><td><code>git commit --amend -m "New msg"</code></td></tr>
+          <tr><td>revert a whole commit</td><td><code>git revert &lt;hash&gt;</code></td></tr>
+          <tr><td>erase last *n* commits (local only)</td><td><code>git reset --hard HEAD~n</code></td></tr>
+        </tbody>
+      </table>
+      <p class="warn">☠️ Never reset shared history; use <code>revert</code> instead.</p>
+    </div>
+
+    <!-- Stash & Clean -->
+    <div id="stash" class="tab-content">
+      <h1>Stash – Temporary Shelves</h1>
+      <div class="code-example">
+        <code>
+git stash -u           <span># stash tracked + untracked</span><br>
+git stash list<br>
+git stash apply stash@{1}<br>
+git stash pop          <span># apply & remove top</span>
+        </code>
+      </div>
+
+      <h2>Clean Untracked Files</h2>
+      <div class="code-example">
+        <code>git clean -n   <span># dry-run</span><br>git clean -fd  <span># force delete</span></code>
+      </div>
+    </div>
+
+    <!-- Advanced -->
+    <div id="advanced" class="tab-content">
+      <h1>Interactive Rebase (Polish History)</h1>
+      <div class="code-example">
+        <code>git rebase -i HEAD~4   <span># squash, re-order, reword</span></code>
+      </div>
+
+      <h1>Bisect – Find Bug in O(log n)</h1>
+      <div class="code-example">
+        <code>
+git bisect start<br>
+git bisect bad           <span># current commit is broken</span><br>
+git bisect good v2.0     <span># last known good tag</span><br>
+<span># Git checks out middle; test & mark:</span><br>
+git bisect good|bad<br>
+<span># When done:</span><br>
+git bisect reset
+        </code>
+      </div>
+
+      <h1>Aliases (Save Keystrokes)</h1>
+      <div class="code-example">
+        <code>
+git config --global alias.lg "log --oneline --graph --decorate"<br>
+git config --global alias.st "status -sb"<br>
+<span># now use:  git lg   or   git st</span>
+        </code>
+      </div>
+    </div>
+  </main>
+
+  <script src="git-script.js"></script>
+</body>
 </html>
