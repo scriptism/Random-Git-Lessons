@@ -1,7 +1,5 @@
 # 🍪 Git and Github CheatSheet
 
-I will complete the repo in the comming days.
-
 ## What You’ll lern here:
 
 Things about basics of git and github
@@ -14,3 +12,4 @@ Things about basics of git and github
    ```bash
    git clone https://github.com/scriptism/Random-Git-Lessons
    ```
+
